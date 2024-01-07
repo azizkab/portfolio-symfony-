@@ -1,0 +1,12 @@
+{# templates/contact/index.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>{{ controller_name }}</h1>
+
+    {{ form_start(formulaire) }}
+    {{ form_row(formulaire.email) }}
+    {{ form_row(formulaire.content) }}
+    {{ form_row(formulaire.envoyer) }}
+    {{ form_end(formulaire) }}
+{% endblock %}

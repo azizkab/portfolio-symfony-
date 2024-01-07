@@ -1,0 +1,28 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <div class="container mt-5">
+        {% if error %}
+            <div class="alert alert-danger" role="alert">
+                {{ error.messageKey }}
+            </div>
+        {% endif %}
+
+        <form method="POST" class="mx-auto p-4 bg-light rounded shadow-sm" style="max-width: 400px;">
+            <div class="mb-3">
+                <label for="username" class="form-label">Nom d'utilisateur</label>
+                <input type="text" name="_username" id="username" value="{{ last_username }}" class="form-control" placeholder="Votre nom d'utilisateur">
+            </div>
+
+            <div class="mb-3">
+                <label for="password" class="form-label">Mot de passe</label>
+                <input type="password" name="_password" id="password" class="form-control" placeholder="Votre mot de passe">
+            </div>
+
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-primary">Se connecter</button>
+                <a href="/createuser" class="btn btn-outline-secondary">Créez un compte utilisateur !</a>
+            </div>
+        </form>
+    </div>
+{% endblock %}

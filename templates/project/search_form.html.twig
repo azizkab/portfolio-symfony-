@@ -1,0 +1,12 @@
+{# templates/project/search_form.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <h1>Recherche de projets</h1>
+
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button type="submit">Rechercher</button>
+    {{ form_end(form) }}
+{% endblock %}

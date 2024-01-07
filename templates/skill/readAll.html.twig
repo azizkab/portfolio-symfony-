@@ -1,0 +1,33 @@
+{# templates/skill/readAll.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des compétences{% endblock %}
+
+{% block body %}
+    <section class="skills" id="skills">
+        <h2 class="heading">Mes Dérniers <span>Projets</span></h2>
+
+        {% if skills is not empty %}
+        <div class="skills-container">
+                {% for skill in skills %}
+            <div class="skills-box">
+                            <div class="skills-layer">
+
+                                <h4 >{{ skill.name }}</h4>
+                                <p class="card-text">{{skill.project}}</p>
+                                <a href="{{ path('read_skill', {'id': skill.id}) }}" class="btn btn-info">Voir</a>
+                                <a href="{{ path('update_skill', {'id': skill.id}) }}" class="btn btn-warning">Modifier</a>
+                                <a href="{{ path('delete_skill', {'id': skill.id}) }}" class="btn btn-danger">Supprimer</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>Aucune compétence trouvée.</p>
+        {% endif %}
+
+        <a href="{{ path('create_skill') }}" class="btn btn-primary">Créer une nouvelle compétence</a>
+    </div>
+{% endblock %}

@@ -1,0 +1,32 @@
+{# templates/comment/index.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Commentaires
+{% endblock %}
+
+{% block body %}
+	<h1>Liste des Commentaires</h1>
+
+	<ul>
+		{% for comment in comments %}
+			<li>
+				{{ comment.auteur }}
+				-
+				{{ comment.contenu }}
+				-
+				{{ comment.date|date('Y-m-d H:i:s') }}
+				<br>
+				Likes:
+				<span class="like-count">{{ comment.likes }}</span>
+				Dislikes:
+				<span class="dislike-count">{{ comment.dislikes }}</span>
+				<br>
+				<button class="like-btn" data-comment-id="{{ comment.id }}">Like</button>
+				<button class="dislike-btn" data-comment-id="{{ comment.id }}">Dislike</button>
+			</li>
+		{% endfor %}
+	</ul>
+
+	<a href="{{ path('comment_create') }}">Ajouter un Commentaire</a>
+{% endblock %}

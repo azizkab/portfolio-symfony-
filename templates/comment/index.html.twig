@@ -1,0 +1,29 @@
+{# templates/comment/index.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Commentaires</h1>
+
+    {% for comment in comments %}
+        <div class="comment" id="comment{{ comment.id }}">
+            <p>{{ comment.auteur }} a dit :</p>
+            <p>{{ comment.contenu }}</p>
+
+            <p>
+                Likes : <span id="likeCount{{ comment.id }}">{{ comment.likes }}</span> |
+                Dislikes : <span id="dislikeCount{{ comment.id }}">{{ comment.dislikes }}</span>
+            </p>
+
+            {% if is_granted('ROLE_USER') %}
+                <a href="#" class="likeBtn" data-comment-id="{{ comment.id }}">Like</a>
+                <a href="#" class="dislikeBtn" data-comment-id="{{ comment.id }}">Dislike</a>
+            {% endif %}
+        </div>
+    {% endfor %}
+
+    {% block javascripts %}
+        {{ parent() }}
+        <script src="{{ asset('js/comment.js') }}"></script>
+    {% endblock %}
+{% endblock %}

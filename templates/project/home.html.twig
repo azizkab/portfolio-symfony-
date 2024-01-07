@@ -1,0 +1,49 @@
+{% extends "base.html.twig" %}
+
+
+
+
+
+{% block title %}
+
+	{{parent()}}
+
+	Accueil
+
+{% endblock %}
+
+
+
+{% block body %}
+
+	<h1>Mes projets</h1>
+
+	{% for project in projects %}
+
+    <img src="{{ asset('uploads/images/' ~ project.image) }} " class='w-25' alt="">  
+
+    <p>{{project.name}}</p>
+
+    <p> {{project.description}}</p>
+
+    <p>{{project.date ? project.date|date('Y-m-d H:i:s') : ''}}</p>
+
+    <a href="{{path('delete',{'id': project.id})}}">delete</a>    
+
+    <a href="{{path('update',{'id': project.id})}}">update</a>    
+
+    <a href="{{path('read',{'id': project.id})}}">read</a>
+
+     
+
+    
+
+    {% endfor %}
+
+	
+
+
+
+	
+
+{% endblock %}

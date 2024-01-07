@@ -1,0 +1,19 @@
+{# templates/project/create.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Création d'un Projet{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <h1 class="mb-4">Création d'un Projet</h1>
+
+        {{ form_start(form) }}
+        {{ form_row(form.name, {'attr': {'class': 'form-control', 'placeholder': 'Entrez le nom du projet'}}) }}
+        {{ form_row(form.description, {'attr': {'class': 'form-control', 'placeholder': 'Entrez la description du projet'}}) }}
+        {{ form_row(form.date, {'attr': {'class': 'form-control', 'placeholder': 'Entrez la date de début du projet'}}) }}
+        {{ form_row(form.image, {'attr': {'class': 'form-control'}}) }}
+        {{ form_row(form.submit, {'attr': {'class': 'btn btn-primary'}}) }}
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

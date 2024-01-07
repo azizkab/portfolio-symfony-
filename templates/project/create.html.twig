@@ -1,0 +1,18 @@
+{# templates/comment/create.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer un Commentaire{% endblock %}
+
+{% block body %}
+    <h1>Créer un Commentaire</h1>
+
+    {{ form_start(form) }}
+    {{ form_row(form.auteur) }}
+    {{ form_row(form.contenu) }}
+    {{ form_row(form._token) }}
+    {{ form_widget(form.submit) }}
+    {{ form_end(form) }}
+    
+    <a href="{{ path('comment_index') }}">Retour à la Liste des Commentaires</a>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "base.html.twig" %}
+{% block body %}
+
+
+{{ form_start(form, {'attr': {'class': 'mx-auto p-4 bg-light rounded shadow-sm', 'style': 'max-width: 400px;'}}) }}
+
+<div class="mb-3">
+    {{ form_label(form.username, 'Nom d\'utilisateur', {'label_attr': {'class': 'form-label'}}) }}
+    {{ form_widget(form.username, {'attr': {'class': 'form-control', 'placeholder': 'Votre nom d\'utilisateur'}}) }}
+</div>
+
+<div class="mb-3">
+    {{ form_label(form.password, 'Mot de passe', {'label_attr': {'class': 'form-label'}}) }}
+    {{ form_widget(form.password.first, {'attr': {'class': 'form-control', 'placeholder': 'Votre mot de passe'}}) }}
+</div>
+
+<div class="mb-3">
+    {{ form_label(form.password.second, 'Confirmer le mot de passe', {'label_attr': {'class': 'form-label'}}) }}
+    {{ form_widget(form.password.second, {'attr': {'class': 'form-control', 'placeholder': 'Confirmez votre mot de passe'}}) }}
+</div>
+<div class="mb-3 text-center" >
+    <a href="/login" class="btn btn-outline-primary custom-btn">Se connecter</a>
+	    <button type="submit" class="btn btn-success custom-btn btn-block " >Créer mon compte</button>
+
+</div>
+<div class="mb-3 text">
+</div>
+
+
+
+{{ form_end(form) }}
+{% endblock %}

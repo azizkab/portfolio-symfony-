@@ -1,0 +1,23 @@
+{# templates/project/read.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails du Projet{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <h1 class="mb-4">Détails du Projet</h1>
+
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Nom du projet: <br>{{ project.name }}</h5>
+                <p class="card-text">Description du projet : <br> {{ project.description }}</p>
+                <p class="card-text"><small class="text-muted">Date de début : <br> {{ project.date|date('d/m/Y') }}</small></p>
+            </div>
+            <img src="{{ asset('uploads/images' ~ project.image) }}" class="card-img-top" alt="{{ project.name }}">
+            <div class="card-body">
+                <a href="{{ path('read_all') }}" class="btn btn-secondary">Retour à la liste des projets</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,33 @@
+controllers:
+    resource: ../src/Controller/
+    type: attribute
+# config/routes.yaml
+home:
+    path: /
+    controller: App\Controller\HomeController::index
+
+
+# C:\php\testlog/config/routes.yaml
+
+search:
+    path: /search/{sortBy}
+    controller: 'App\Controller\ProjectController::search'
+    defaults:
+        sortBy: 'default'
+    requirements:
+        sortBy: 'default|date'
+comment_index:
+    path: /comments
+    controller: App\Controller\CommentController::index
+
+comment_create:
+    path: /comment/create
+    controller: App\Controller\CommentController::create
+
+comment_like:
+    path: /comment/{id}/like
+    controller: App\Controller\CommentController::like
+
+comment_dislike:
+    path: /comment/{id}/dislike
+    controller: App\Controller\CommentController::dislike
